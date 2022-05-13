@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
+/// <summary>
+/// THANK YOU DR BEAN
+/// </summary>
 namespace Shoota.Screen
 {
     public class GameplayScreen : StateManagement.GameScreen

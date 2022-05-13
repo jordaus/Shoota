@@ -22,7 +22,7 @@ namespace Shoota
 
         public HUDisplay()
         {
-            highscore = 1000;
+            highscore = 4000;
             score = 0;
             showDisplay = true;
             height = 950;

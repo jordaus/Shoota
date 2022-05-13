@@ -44,7 +44,7 @@ namespace Shoota
             //enmeny moves back to the top
             if (position.Y >= 950)
                 position.Y = -75;
-
+            
             EnemyShoot();
             UpdateBullets();
         }
@@ -66,7 +66,7 @@ namespace Shoota
                 l.boundingRectangle = new Rectangle((int)l.position.X, (int)l.position.Y, l.texture.Width, l.texture.Height);
                 l.position.Y = l.position.Y + l.speed;
 
-                if (l.position.Y >= 0)
+                if (l.position.Y >= 950)
                 {
                     l.isVisible = false;
                 }

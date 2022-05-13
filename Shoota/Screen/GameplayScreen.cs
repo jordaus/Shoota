@@ -99,8 +99,22 @@ namespace Shoota.Screen
 
             if(player.health <= 0)
             {
-                GameOverScreen gameOver = new GameOverScreen();
-                ScreenManager.AddScreen(gameOver, ControllingPlayer);
+                if(HUD.score < HUD.highscore)
+                {
+                    GameOverScreen gameOver = new GameOverScreen();
+                    ScreenManager.AddScreen(gameOver, ControllingPlayer);
+                }
+                else
+                {
+                    GameOverScreenGood goodOver = new GameOverScreenGood();
+                    ScreenManager.AddScreen(goodOver, ControllingPlayer);
+                }
+                
+            }
+
+            if(HUD.score >= HUD.highscore)
+            {
+                HUD.highscore = HUD.score;
             }
 
 
@@ -120,7 +134,7 @@ namespace Shoota.Screen
 
             if (meteorList.Count < 5)
             {
-                meteorList.Add(new Meteor(_content.Load<Texture2D>("planet_4"), new Vector2(randX, randY)));
+                meteorList.Add(new Meteor(_content.Load<Texture2D>("planet_5"), new Vector2(randX, randY)));
             }
 
             for (int i = 0; i < meteorList.Count; i++)

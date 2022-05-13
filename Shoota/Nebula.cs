@@ -26,7 +26,7 @@ namespace Shoota
 
         public void LoadContent(ContentManager Content)
         {
-            texture = Content.Load<Texture2D>("bluneb");
+            texture = Content.Load<Texture2D>("blunea");
         }
 
         public void Draw(SpriteBatch sb)

@@ -24,7 +24,7 @@ namespace Shoota
         {
             laserList = new List<Laser>();
             texture = null;
-            position = new Vector2(300, 300);
+            position = new Vector2(375, 700);
             laserDelay = 5;
             speed = 10;
             isColliding = false;
@@ -36,7 +36,7 @@ namespace Shoota
         {
             texture = content.Load<Texture2D>("ship_4");
             laserTexture = content.Load<Texture2D>("star");
-            healthTexture = content.Load<Texture2D>("Red 16px1");
+            healthTexture = content.Load<Texture2D>("purp");
         }
 
         public void Draw(SpriteBatch sb)

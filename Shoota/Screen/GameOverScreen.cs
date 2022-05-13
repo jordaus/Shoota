@@ -12,6 +12,7 @@ namespace Shoota.Screen
     {
         private ContentManager _content;
         private SpriteFont impact;
+        private Texture2D background;
         Cube cube;
 
         public override void Activate()
@@ -25,6 +26,7 @@ namespace Shoota.Screen
             Game1 game = ScreenManager.Game as Game1;
             _content = new ContentManager(ScreenManager.Game.Services, "Content");
             impact = _content.Load<SpriteFont>("Impact");
+            background = _content.Load<Texture2D>("bluneb");
             cube = new Cube(game);
         }
 
@@ -48,9 +50,11 @@ namespace Shoota.Screen
         public override void Draw(GameTime gameTime)
         {
             ScreenManager.SpriteBatch.Begin();
-            ScreenManager.SpriteBatch.DrawString(impact, "Game Over!", new Vector2(350, 350), Color.White);
-            ScreenManager.SpriteBatch.DrawString(impact, "Press Esc to Quit!", new Vector2(250, 450), Color.White);
-            cube.Draw();
+            ScreenManager.SpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            ScreenManager.SpriteBatch.DrawString(impact, "Game Over!", new Vector2(325, 350), Color.White);
+            ScreenManager.SpriteBatch.DrawString(impact, "Press Esc to Quit!", new Vector2(300, 450), Color.White);
+            //cube.Draw();
+            
             ScreenManager.SpriteBatch.End();
             base.Draw(gameTime);
         }

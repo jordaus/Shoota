@@ -8,12 +8,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Shoota.Screen
 {
-    public class TitleScreen : StateManagement.GameScreen
+    public class GameOverScreenGood : StateManagement.GameScreen
     {
-        private Texture2D title;
-        
         private ContentManager _content;
         private SpriteFont impact;
+        private Texture2D background, redStar;
         Cube cube;
 
         public override void Activate()
@@ -27,8 +26,8 @@ namespace Shoota.Screen
             Game1 game = ScreenManager.Game as Game1;
             _content = new ContentManager(ScreenManager.Game.Services, "Content");
             impact = _content.Load<SpriteFont>("Impact");
-            title = _content.Load<Texture2D>("sigma");
-            
+            background = _content.Load<Texture2D>("greenneb");
+            redStar = _content.Load<Texture2D>("redstar");
             cube = new Cube(game);
         }
 
@@ -37,8 +36,8 @@ namespace Shoota.Screen
             PlayerIndex player;
             if (input.IsKeyPressed(Keys.Enter, null, out player))
             {
-                GameplayScreen liftOffGameplay = new GameplayScreen();
-                ScreenManager.AddScreen(liftOffGameplay, player);
+                GameplayScreen Gameplay = new GameplayScreen();
+                ScreenManager.AddScreen(Gameplay, player);
             }
         }
 
@@ -52,12 +51,13 @@ namespace Shoota.Screen
         public override void Draw(GameTime gameTime)
         {
             ScreenManager.SpriteBatch.Begin();
-            
-            ScreenManager.SpriteBatch.Draw(title, new Vector2(300, 300), Color.White);
-            //ScreenManager.SpriteBatch.DrawString(impact, "Shoota!", new Vector2(350, 350), Color.White);
-            ScreenManager.SpriteBatch.DrawString(impact, "Press Enter!", new Vector2(325, 500), Color.White);
-            ScreenManager.SpriteBatch.DrawString(impact, "Try to beat the high score!", new Vector2(225, 550), Color.Yellow);
-            cube.Draw();
+            ScreenManager.SpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            ScreenManager.SpriteBatch.Draw(redStar, new Vector2(300, 100), Color.White);
+            ScreenManager.SpriteBatch.DrawString(impact, "New High Score!", new Vector2(300, 225), Color.Blue);
+            ScreenManager.SpriteBatch.DrawString(impact, "This is the Good Ending!", new Vector2(250, 275), Color.Blue);
+            ScreenManager.SpriteBatch.DrawString(impact, "Game Over!", new Vector2(325, 350), Color.White);
+            ScreenManager.SpriteBatch.DrawString(impact, "Press Esc to Quit!", new Vector2(300, 450), Color.White);
+            //cube.Draw();
             
             ScreenManager.SpriteBatch.End();
             base.Draw(gameTime);
